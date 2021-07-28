@@ -1,6 +1,6 @@
 void main(){
   print("hello World");
-  print("Ratchanon Semsayan");
-  print("AFDOL");
+  print("My name is Ratchanon Semsayan ");
+  print("My nicknam is AFDOL");
   print("*********************");
 }
