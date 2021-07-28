@@ -1,4 +1,5 @@
 void main(){
   print("hello World");
-  print("Ratchanon");
+  print("Ratchanon Semsayan");
+  print("AFDOL");
 }
