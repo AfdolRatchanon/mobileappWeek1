@@ -17,7 +17,7 @@ String calGenAD(int year) => (year < 1926)
                     ? "Y"
                     : "Z";
 
-//returnFunction and methode of List
+//FunctionReturnType, methode of List and Position Parameter
 int callcolor([String newColor = "White"]) {
   List<dynamic> color = ['Red', 'Green', 'Blue'];
   color.add(newColor);
