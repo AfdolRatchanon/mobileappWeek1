@@ -1,5 +1,5 @@
 void main() {
-  print("you generation : " + calGenAD(year));
+  print("you generation : " + calGenAD(2000));
   print("\nList have : " + callcolor("Black").toString() + " Item");
   callweb('Google', protocal: "https", port: 443);
 }
