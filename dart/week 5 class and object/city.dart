@@ -3,11 +3,19 @@ import 'problem.dart';
 
 class city extends country with problem {
   //Property
-  String name = "Istanbul";
+  String nCity; /* = "Istanbul"*/
 
   //Constructor
-  city() : super("non country", "non capital");
+  /*city(String country, String capital, String name){
+    this.name = name;
+  */
+  city(String country, String _capital, this.nCity) : super(country, _capital);
 
+  // Methods
+  //  Setting
+  setNCity(String nCity) => this.nCity = nCity;
+  //  Getting
+  String getNCity() => this.nCity;
   @override
-  String showProvice() => this.name;
+  String showProvice() => this.nCity;
 }
