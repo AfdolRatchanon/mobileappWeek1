@@ -1,3 +1,4 @@
+import 'package:firstdart/config/constant.dart';
 import 'package:flutter/material.dart';
 
 class index extends StatelessWidget {
@@ -46,7 +47,7 @@ class index extends StatelessWidget {
                 Text(
                   "Welcome to KMUTNB",
                   style: TextStyle(
-                      color: Colors.orange,
+                      color: /*Colors.orange*/ pColor,
                       fontSize: 30,
                       fontWeight: FontWeight.bold),
                 ),
@@ -69,10 +70,11 @@ class index extends StatelessWidget {
                 ElevatedButton(
                     onPressed: () {
                       print("Login");
+                      Navigator.pushNamed(context, 'login');
                     },
                     child: Text("Login"),
                     style: ElevatedButton.styleFrom(
-                      primary: Colors.orange,
+                      primary: /*Colors.orange*/ pColor,
                       padding: EdgeInsets.fromLTRB(120, 15, 120, 15),
                       shape: StadiumBorder(),
                     )),
@@ -81,11 +83,12 @@ class index extends StatelessWidget {
                 ),
                 ElevatedButton(
                     onPressed: () {
-                      print("Login");
+                      print("Sing Up");
+                      Navigator.pushNamed(context, 'register');
                     },
                     child: Text("Sing Up"),
                     style: ElevatedButton.styleFrom(
-                      primary: Colors.orange,
+                      primary: /*Colors.orange*/ pColor,
                       padding: EdgeInsets.fromLTRB(114, 15, 114, 15),
                       shape: StadiumBorder(),
                     )),
