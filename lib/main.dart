@@ -14,7 +14,8 @@ class KMUTNB extends StatelessWidget {
     return MaterialApp(
       //หน้าแรกของ APP
       home: index(),
-      // เหมือน Link ของเว็บ แต่ดีกว่า
+      //REVIEW เรียก class index() ไม่ได้เรียกเชื่อไฟล์ index.dart
+      //REVIEW เหมือน Link ของเว็บ แต่ดีกว่า
       routes: {
         'index': (context) => index(),
         'login': (context) => login(),
