@@ -1,3 +1,4 @@
+import 'package:firstdart/backend/database.dart';
 import 'package:firstdart/config/constant.dart';
 import 'package:flutter/material.dart';
 
@@ -218,21 +219,25 @@ class _registerState extends State<register> {
   Widget btnSubmit() => ElevatedButton(
       style: ElevatedButton.styleFrom(primary: pColor),
       onPressed: () {
+        var local = DBLocal();
+
         print('button click');
         if (formKey.currentState!.validate()) {
           //NOTE สั่งให้ form save
           //FIXME อย่าลืม
           formKey.currentState!.save();
-          print('_____________');
+          local.register(name, surname, email, password);
+          /*print('_____________');
           print(' save success');
           print('_____________');
           print("Name : $name");
           print("Surname : $surname");
           print("Email : $email");
-          print("Password : $password");
-          //formKey.currentState!.reset();
+          print("Password : $password");*/
+          formKey.currentState!.reset();
+          Navigator.pushNamed(context, 'login');
         }
-        print("Buffer Password : $buffPass");
+        //print("Buffer Password : $buffPass");
       },
       child: Text('Submit'));
 }

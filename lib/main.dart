@@ -1,4 +1,5 @@
 import 'package:firstdart/config/constant.dart';
+import 'package:firstdart/screen/dashboard.dart';
 import 'package:firstdart/screen/home.dart';
 import 'package:firstdart/screen/index.dart';
 import 'package:firstdart/screen/login.dart';
@@ -20,6 +21,7 @@ class KMUTNB extends StatelessWidget {
         'index': (context) => index(),
         'login': (context) => login(),
         'register': (context) => register(),
+        'Dashboard': (context) => Dashboard(),
       },
       theme: ThemeData(primaryColor: pColor, secondaryHeaderColor: sColor),
     );
