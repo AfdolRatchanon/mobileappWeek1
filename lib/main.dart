@@ -3,6 +3,9 @@ import 'package:firstdart/screen/dashboard.dart';
 import 'package:firstdart/screen/home.dart';
 import 'package:firstdart/screen/index.dart';
 import 'package:firstdart/screen/login.dart';
+import 'package:firstdart/screen/packeageImage.dart';
+import 'package:firstdart/screen/packeageLocation.dart';
+import 'package:firstdart/screen/packeageVideo.dart';
 import 'package:firstdart/screen/register.dart';
 //import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -22,6 +25,9 @@ class KMUTNB extends StatelessWidget {
         'login': (context) => login(),
         'register': (context) => register(),
         'Dashboard': (context) => Dashboard(),
+        'Image': (context) => packageImage(),
+        'Video': (context) => packeageVideo(),
+        'Location': (context) => packeageLocation(),
       },
       theme: ThemeData(primaryColor: pColor, secondaryHeaderColor: sColor),
     );

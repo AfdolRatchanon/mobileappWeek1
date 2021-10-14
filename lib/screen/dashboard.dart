@@ -47,6 +47,62 @@ class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        //NOTE ตัวเมนูทด้านซ้ายชื่อว่า Drawer
+        drawer: Drawer(
+          child: ListView(
+            children: [
+              DrawerHeader(
+                decoration: BoxDecoration(color: sColor),
+                child: Text(
+                  'Package',
+                  style: TextStyle(fontSize: 20, color: pColor),
+                ),
+              ),
+              ListTile(
+                title: Text(
+                  "Video",
+                  style: TextStyle(fontSize: 18, color: tColor),
+                ),
+                leading: Icon(
+                  Icons.video_call,
+                  color: tColor,
+                ),
+                onTap: () {
+                  print("Menu Video");
+                  Navigator.pushNamed(context, 'Video');
+                },
+              ),
+              ListTile(
+                title: Text(
+                  "Image",
+                  style: TextStyle(fontSize: 18, color: tColor),
+                ),
+                leading: Icon(
+                  Icons.image,
+                  color: tColor,
+                ),
+                onTap: () {
+                  print("Menu Image");
+                  Navigator.pushNamed(context, 'Image');
+                },
+              ),
+              ListTile(
+                title: Text(
+                  "Location",
+                  style: TextStyle(fontSize: 18, color: tColor),
+                ),
+                leading: Icon(
+                  Icons.location_on_outlined,
+                  color: tColor,
+                ),
+                onTap: () {
+                  print("Menu Location");
+                  Navigator.pushNamed(context, 'Location');
+                },
+              ),
+            ],
+          ),
+        ),
         appBar: AppBar(
           title: Row(
             children: [
