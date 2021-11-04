@@ -8,6 +8,7 @@ import 'package:firstdart/screen/login.dart';
 import 'package:firstdart/screen/packeageImage.dart';
 import 'package:firstdart/screen/packeageLocation.dart';
 import 'package:firstdart/screen/packeageVideo.dart';
+import 'package:firstdart/screen/store.dart';
 //import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -35,6 +36,7 @@ class KMUTNB extends StatelessWidget {
         'Image': (context) => packageImage(),
         'Video': (context) => packeageVideo(),
         'Location': (context) => packeageLocation(),
+        'Store': (context) => Store(),
       },
       theme: ThemeData(primaryColor: pColor, secondaryHeaderColor: sColor),
     );

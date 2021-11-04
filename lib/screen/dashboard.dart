@@ -1,5 +1,4 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:firstdart/config/constant.dart';
 import 'package:firstdart/model/TCT.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +14,7 @@ class Dashboard extends StatefulWidget {
 class _DashboardState extends State<Dashboard> {
   var data;
 
-  Future<void> loigout() async {
+  Future<void> logout() async {
     await FirebaseAuth.instance.signOut();
     print("Function Logout Activated");
   }
@@ -54,125 +53,139 @@ class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        //NOTE ตัวเมนูทด้านซ้ายชื่อว่า Drawer
-        drawer: Drawer(
-          child: ListView(
-            children: [
-              DrawerHeader(
-                decoration: BoxDecoration(color: sColor),
-                child: Text(
-                  'Package',
-                  style: TextStyle(fontSize: 20, color: pColor),
-                ),
+      drawer: Drawer(
+        child: ListView(
+          children: [
+            DrawerHeader(
+              decoration: BoxDecoration(color: sColor),
+              child: Text(
+                'Package',
+                style: TextStyle(fontSize: 20, color: pColor),
               ),
-              ListTile(
-                title: Text(
-                  "Video",
-                  style: TextStyle(fontSize: 18, color: tColor),
-                ),
-                leading: Icon(
-                  Icons.video_call,
-                  color: tColor,
-                ),
-                onTap: () {
-                  print("Menu Video");
-                  Navigator.pushNamed(context, 'Video');
-                },
+            ),
+            ListTile(
+              title: Text(
+                "Video",
+                style: TextStyle(fontSize: 18, color: tColor),
               ),
-              ListTile(
-                title: Text(
-                  "Image",
-                  style: TextStyle(fontSize: 18, color: tColor),
-                ),
-                leading: Icon(
-                  Icons.image,
-                  color: tColor,
-                ),
-                onTap: () {
-                  print("Menu Image");
-                  Navigator.pushNamed(context, 'Image');
-                },
+              leading: Icon(
+                Icons.video_call,
+                color: tColor,
               ),
-              ListTile(
-                title: Text(
-                  "Location",
-                  style: TextStyle(fontSize: 18, color: tColor),
-                ),
-                leading: Icon(
-                  Icons.location_on_outlined,
-                  color: tColor,
-                ),
-                onTap: () {
-                  print("Menu Location");
-                  Navigator.pushNamed(context, 'Location');
-                },
+              onTap: () {
+                print("Menu Video");
+                Navigator.pushNamed(context, 'Video');
+              },
+            ),
+            ListTile(
+              title: Text(
+                "Image",
+                style: TextStyle(fontSize: 18, color: tColor),
               ),
-              ListTile(
-                title: Text(
-                  "Logout",
-                  style: TextStyle(fontSize: 18, color: Colors.red),
-                ),
-                leading: Icon(
-                  Icons.logout_outlined,
-                  color: Colors.red,
-                ),
-                onTap: () {
-                  loigout();
-                  Navigator.of(context).pop();
-                  Navigator.pushNamed(context, 'index', arguments: []);
-                  print("Logout Success");
-                },
+              leading: Icon(
+                Icons.image,
+                color: tColor,
               ),
-            ],
-          ),
+              onTap: () {
+                print("Menu Image");
+                Navigator.pushNamed(context, 'Image');
+              },
+            ),
+            ListTile(
+              title: Text(
+                "Location",
+                style: TextStyle(fontSize: 18, color: tColor),
+              ),
+              leading: Icon(
+                Icons.location_on_outlined,
+                color: tColor,
+              ),
+              onTap: () {
+                print("Menu Location");
+                Navigator.pushNamed(context, 'Location');
+              },
+            ),
+            ListTile(
+              title: Text(
+                "Store",
+                style: TextStyle(fontSize: 18, color: tColor),
+              ),
+              leading: Icon(
+                Icons.store,
+                color: Colors.green,
+              ),
+              onTap: () {
+                print("Menu Store");
+                Navigator.pushNamed(context, 'Store');
+              },
+            ),
+            ListTile(
+              title: Text(
+                "Logout",
+                style: TextStyle(fontSize: 18, color: Colors.red),
+              ),
+              leading: Icon(
+                Icons.logout_outlined,
+                color: Colors.red,
+              ),
+              onTap: () {
+                logout();
+                Navigator.of(context).pop();
+                Navigator.pushNamed(context, 'index', arguments: []);
+                print("Logout Success");
+              },
+            ),
+          ],
         ),
-        appBar: AppBar(
-          title: Row(
-            children: [
-              Icon(Icons.api),
-              SizedBox(
-                width: 20,
-              ),
-              Text("Dashboard")
-            ],
-          ),
+      ),
+      appBar: AppBar(
+        title: Row(
+          children: [
+            Icon(Icons.api),
+            SizedBox(
+              width: 20,
+            ),
+            Text("Dashboard")
+          ],
         ),
-        body: SingleChildScrollView(
-          //FIXME มี err เพราะว่าการทำงานของ init ทำงานแบบ asyconus ซึ่งข้อมูลยังไม่มาทำให้อ่านข้อมูลไม่ได้
-          //REVIEW ใส่ ? หลังตัวแปรเพื่ออนุญาตให้ ตัวแปรเป็นค่า Null
-          child: Center(
-            child: Column(children: [
-              SizedBox(
-                height: 10,
-              ),
-              Text(
-                "Activity : " + (data?.activity ?? "loading.."),
-                style: TextStyle(fontSize: 30, color: pColor),
-              ),
+      ),
+      body: SingleChildScrollView(
+        //FIXME มี err เพราะว่าการทำงานของ init ทำงานแบบ asyconus ซึ่งข้อมูลยังไม่มาทำให้อ่านข้อมูลไม่ได้
+        //REVIEW ใส่ ? หลังตัวแปรเพื่ออนุญาตให้ ตัวแปรเป็นค่า Null
+        child: Center(
+          child: Column(children: [
+            SizedBox(
+              height: 10,
+            ),
+            Text(
+              "Activity : " + (data?.activity ?? "loading.."),
+              style: TextStyle(fontSize: 30, color: pColor),
+            ),
 
-              SizedBox(
-                height: 30,
-              ),
+            SizedBox(
+              height: 30,
+            ),
 
-              Text("Type : " + (data?.type ?? ''),
-                  style: TextStyle(fontSize: 30, color: tColor)),
+            Text("Type : " + (data?.type ?? ''),
+                style: TextStyle(fontSize: 30, color: tColor)),
 
-              SizedBox(
-                height: 30,
-              ),
+            SizedBox(
+              height: 30,
+            ),
 
-              //FIXME ใส่ '${ตัวแปร}' เพื่อแปลงเป็น string
-              Text("Price : " + '${data?.price ?? ""}',
-                  style: TextStyle(fontSize: 30, color: pColor)),
+            //FIXME ใส่ '${ตัวแปร}' เพื่อแปลงเป็น string
+            Text("Price : " + '${data?.price ?? ""}',
+                style: TextStyle(fontSize: 30, color: pColor)),
 
-              SizedBox(
-                height: 30,
-              ),
+            SizedBox(
+              height: 30,
+            ),
 
-              Text("Participants : " + '${data?.participants ?? ""}',
-                  style: TextStyle(fontSize: 30, color: tColor)),
-            ]),
-          ),
-        ));
+            Text("Participants : " + '${data?.participants ?? ""}',
+                style: TextStyle(fontSize: 30, color: tColor)),
+          ]),
+        ),
+      ),
+    );
   }
 }

@@ -2,6 +2,7 @@
    "project_info": {
       "project_number": "949451639620",
       "project_id": "tctfirstmobileapp",
+      "firebase_url": "https://tctfirstmobileapp-default-rtdb.asia-southeast1.firebasedatabase.app",
       "storage_bucket": "tctfirstmobileapp.appspot.com"
    },
    "client": [

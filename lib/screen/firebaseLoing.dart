@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firstdart/config/constant.dart';
 import 'package:firstdart/screen/dashboard.dart';
+import 'package:firstdart/screen/index.dart';
 import 'package:flutter/material.dart';
 
 class FirebaseLogin extends StatefulWidget {
@@ -16,6 +17,7 @@ class _FirebaseLoginState extends State<FirebaseLogin> {
 
   Future<void> checkUser() async {
     try {
+      print("Bug");
       await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password)
           .then((value) {
