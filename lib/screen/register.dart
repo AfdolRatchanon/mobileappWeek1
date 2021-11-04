@@ -52,7 +52,7 @@ class _registerState extends State<register> {
                         return 'กรุณากรอกตัวอักษรมากกว่า 1 ตัว';
                       }
                     },
-                    onSaved: (value) {
+                    onSaved: (String? value) {
                       //NOTE .trim จะลบช่องว่างให้ในการเก็บข้อมูล
                       name = value!.trim();
                     },
@@ -146,7 +146,7 @@ class _registerState extends State<register> {
             return 'กรุณากรอกในรูแบบอีเมล';
           }
         },
-        onSaved: (value) {
+        onSaved: (String? value) {
           //NOTE .trim จะลบช่องว่างให้ในการเก็บข้อมูล
           email = value!.trim();
         },
@@ -182,7 +182,7 @@ class _registerState extends State<register> {
             buffPass = value;
           }
         },
-        onSaved: (value) {
+        onSaved: (String? value) {
           buffPass = value;
           password = value;
         },

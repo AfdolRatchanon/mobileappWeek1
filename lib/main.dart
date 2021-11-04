@@ -1,16 +1,23 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:firstdart/config/constant.dart';
 import 'package:firstdart/screen/dashboard.dart';
-import 'package:firstdart/screen/home.dart';
+import 'package:firstdart/screen/firebaseLoing.dart';
+import 'package:firstdart/screen/firebaseRegister.dart';
 import 'package:firstdart/screen/index.dart';
 import 'package:firstdart/screen/login.dart';
 import 'package:firstdart/screen/packeageImage.dart';
 import 'package:firstdart/screen/packeageLocation.dart';
 import 'package:firstdart/screen/packeageVideo.dart';
-import 'package:firstdart/screen/register.dart';
 //import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(KMUTNB());
+//void main() => runApp(KMUTNB());
+Future<void> main() async {
+  //NOTE open Connection to Firebase
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(KMUTNB());
+}
 
 class KMUTNB extends StatelessWidget {
   @override
@@ -22,8 +29,8 @@ class KMUTNB extends StatelessWidget {
       //REVIEW เหมือน Link ของเว็บ แต่ดีกว่า
       routes: {
         'index': (context) => index(),
-        'login': (context) => login(),
-        'register': (context) => register(),
+        'login': (context) => FirebaseLogin(),
+        'register': (context) => FirebaseRegister(),
         'Dashboard': (context) => Dashboard(),
         'Image': (context) => packageImage(),
         'Video': (context) => packeageVideo(),

@@ -1,3 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:firstdart/config/constant.dart';
 import 'package:firstdart/model/TCT.dart';
 import 'package:flutter/material.dart';
@@ -12,6 +14,11 @@ class Dashboard extends StatefulWidget {
 
 class _DashboardState extends State<Dashboard> {
   var data;
+
+  Future<void> loigout() async {
+    await FirebaseAuth.instance.signOut();
+    print("Function Logout Activated");
+  }
 
   @override
   void initState() {
@@ -98,6 +105,22 @@ class _DashboardState extends State<Dashboard> {
                 onTap: () {
                   print("Menu Location");
                   Navigator.pushNamed(context, 'Location');
+                },
+              ),
+              ListTile(
+                title: Text(
+                  "Logout",
+                  style: TextStyle(fontSize: 18, color: Colors.red),
+                ),
+                leading: Icon(
+                  Icons.logout_outlined,
+                  color: Colors.red,
+                ),
+                onTap: () {
+                  loigout();
+                  Navigator.of(context).pop();
+                  Navigator.pushNamed(context, 'index', arguments: []);
+                  print("Logout Success");
                 },
               ),
             ],
